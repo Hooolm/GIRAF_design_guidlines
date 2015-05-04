@@ -26,3 +26,4 @@ main.fdb_latexmk
 main.pdf
 main.ptc
 main.run.xml
+structure.fdb_latexmk
