@@ -46,6 +46,7 @@
 %----------------------------------------------------------------------------------------
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+\input{preamble/lstlistings}
 
 \begin{document}
 
@@ -104,6 +105,13 @@
 \input{content/element_placement/element_placement}
 
 %----------------------------------------------------------------------------------------
+%	LONG TASKS
+%----------------------------------------------------------------------------------------
+
+\part{Long tasks}
+\input{content/long_tasks/long_tasks}
+
+%----------------------------------------------------------------------------------------
 %	INDEX
 %----------------------------------------------------------------------------------------
 
@@ -114,5 +122,9 @@
 \printindex
 
 %----------------------------------------------------------------------------------------
+
+% === Appendix === %
+\appendix
+\input{content/appendix/appendix.tex}
 
 \end{document}
