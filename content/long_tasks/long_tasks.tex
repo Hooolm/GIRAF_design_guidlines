@@ -1,12 +1,12 @@
 %!TEX root = ../../main.tex
 
 \chapter{Long tasks}
-Long running tasks should generally not block the GUI. Any task that can potentially take a long time should be done on a background thread and NOT on the main GUI thread see Appendix \ref{app:threading_asynctask}. 
+Long running tasks should generally not block the GUI. Any task that can potentially take a long time should be done on a background thread and NOT on the main GUI thread see Appendix \ref{app:threading_asynctask}. \\
 
 Long running tasks should generally be supported by visual feedback which tells the user that something is going on and that the application is not frozen. 
 
 \section{Progressbar}
-The Android framework includes a widget called ProgressBar which can be used both as an activity indicator, see \ref{fig:activity_indicator_in_dialog}, and as an actual progress bar. ProgressBar is henceforth be reffered to as just ProgressBar, covering both usages, unless otherwise made explicit. Both are great at indicating that the app is not frozen and that something is going on. The ProgressBar (as a progress bar) should generally be used when there is a reliable way of calculating the actually progress og the running task. And the Activity indicator should generally be used when there is no way of telling how long there will be til the task is complete. 
+The Android framework includes a widget called \androidinline{ProgressBar} which can be used both as an activity indicator (see Figure \ref{fig:activity_indicator_in_dialog}), and as an actual progress bar. Both usages of the word will henceforth be referred to as just \androidinline{ProgressBar}, unless otherwise made explicit. Both are great at indicating that the application is not frozen and that something is going on. The ProgressBar (as a progress bar) should generally be used when there is a reliable way of calculating the actual progress on the running task. The Activity indicator should generally be used when there is no way of telling how long there will be until the task is complete. \\
 
 \begin{figure}[!htbp]
   \centering
@@ -15,7 +15,6 @@ The Android framework includes a widget called ProgressBar which can be used bot
     \label{fig:activity_indicator_in_dialog}
 \end{figure}
 
-If one have temporally unused screen real estate at the location where one are conceptually loading in elements then you should place you progress bar or activity indicator in this unused screen real estate.
+\noindent If unused screen real estate is temporarily available at the location onto which elements are currently being loaded, one should place the \androidinline{ProgressBar} in this unused screen real estate.\\
 
-\section{Dialogs}
-One should use a Giraf dialog with a ProgressBar while the task is running if one does not have enough screen real estate available for a ProgressBar or if it otherwise does not make sense to place the ProgressBar in the layout.  
+\noindent If there is not enough screen real estate available, or if it does not make sense to place the \androidinline{ProgressBar} at the available location, one should use a Dialog with a \androidinline{ProgressBar} instead.
