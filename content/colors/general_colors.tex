@@ -1,23 +1,115 @@
 %!TEX root = ../../main.tex
 
-\newcommand\colorbreak{\noindent\rule{\textwidth}{0.4pt}}
-
 \chapter{General Colors}
 Throughout this chapter a single color in each entry will denote a solid color, while two colors in an entry will denote a gradient between the two colors.
 
 \section{Text and Background}
+These colors should be used throughout any application.
 
-\begin{table}[h]
+\begin{table}[!htbp]
 	\begin{tabularx}{\textwidth}{X r c}
+		Text-color to use throughout all applications 
+		& \texttt{\#000000} & \cellcolor[HTML]{000000}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
 
-	Text-color to use throughout all applications 
-	& \texttt{\#000000} & \cellcolor[HTML]{000000}\phantom{--} \\ \hline \addlinespace[2ex]
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c}
+		Background-color for any applications window background 
+		& \texttt{\#000000} & \cellcolor[HTML]{000000}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
 
-	Background-color for any applications window background 
-	& \texttt{\#000000} & \cellcolor[HTML]{000000}\phantom{--} \\ \hline \addlinespace[2ex]
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c}
+		Background-color for any activity 
+		& \texttt{\#E9E9E9} & \cellcolor[HTML]{E9E9E9}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
 
-	Background-color for any activity 
-	& \texttt{\#e9e9e9} & \cellcolor[HTML]{e9e9e9}\phantom{--} \\ \hline \addlinespace[2ex]
+\section{Buttons}
+All buttons in the \giraf software suite should use these colors for buttons. Please note that all gradients defined below are from top to bottom. Also note that the colors for the disabled button must be slightly transparent ($65\%$).
 
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Regular button background 
+		& \texttt{\#FFCD59} & \cellcolor[HTML]{FFCD59}\phantom{--}
+		& \texttt{\#FF9D00} & \cellcolor[HTML]{FF9D00}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Regular button stroke/border 
+		& ~ & ~
+		& \texttt{\#8A6E00} & \cellcolor[HTML]{8A6E00}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Pressed button background 
+		& \texttt{\#D4AD2F} & \cellcolor[HTML]{D4AD2F}\phantom{--}
+		& \texttt{\#FF9D00} & \cellcolor[HTML]{FF9D00}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Pressed button stroke/border 
+		& ~ & ~
+		& \texttt{\#493700} & \cellcolor[HTML]{493700}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Focused button background 
+		& \texttt{\#FF9D00} & \cellcolor[HTML]{FF9D00}\phantom{--}
+		& \texttt{\#FF5900} & \cellcolor[HTML]{FF5900}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Focused button stroke/border 
+		& ~ & ~
+		& \texttt{\#8A6E00} & \cellcolor[HTML]{8A6E00}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Focused button background 
+		& \texttt{\#FAD355} & \cellcolor[HTML]{FAD355}\phantom{--}
+		& \texttt{\#FEBE40} & \cellcolor[HTML]{FEBE40}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Focused button stroke/border 
+		& ~ & ~
+		& \texttt{\#E4AE4E} & \cellcolor[HTML]{E4AE4E}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+
+\section{Action Bar}
+All applications that use action bars must use the following colors. Please notice that the gradient for the topbar is from top to bottom.
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Background of any actionbar 
+		& \texttt{\#FDBB55} & \cellcolor[HTML]{FDBB55}\phantom{--}
+		& \texttt{\#FED76C} & \cellcolor[HTML]{FED76C}\phantom{--} \\ \hline
+	\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+	\begin{tabularx}{\textwidth}{X r c r c}
+		Stroke/border of the action bar 
+		& ~ & ~
+		& \texttt{\#E5BE53} & \cellcolor[HTML]{E5BE53}\phantom{--} \\ \hline
 	\end{tabularx}
 \end{table}
