@@ -2,27 +2,78 @@
 \chapter{How to use dialogs}
 \label{app:how_to_use_dialogs}
 
-When using the various dialogs implemented in the \gc, it is important that one uses the support library, this is done by including the support library in the gradle build file as seen on Code Snippet 
+When using the various dialogs implemented in the \gc, it is important that one uses the support library, this is done by including the support library in the gradle build file as seen in \lstref{lst:build_gradle}.
 
 \lstinputlisting[
-    style = Java,
+    style = gradle,
     caption = {build.gradle},
     label = {lst:build_gradle},
 ]{content/appendix/how_to_use_dialogs/code_snippets/build.gradle}
+\noindent
+The dialogs is an extension of the android class \androidinline{DialogFragment}, meaning that all dialogs is handled as fragments. This means that callbacks from the dialogs is done using interfaces, which the activity starting them should implement. Through out the description of these dialogs there will be talked about a method called \androidinline{onActionButtonClick} which is an event that is called whenever some gui element is clicked, eg. when a button is clicked. Also note that in all of the following code snippets there is declared a string tag (\androidinline{DIALOG_TAG}) this is a tag that the Android system needs to handle fragments. However in many of the code snippets there also exist an integer (\androidinline{DIALOG_ID}) which is used to call a method in the activity from the fragment.
+
+\begin{note}
+	It is important that whenever one creates a dialog one uses the \androidinline{newInstance} method on the specific dialog.
+\end{note}
 
 \section{Confirm dialog}
 \label{sec:impl_confirm_dialog}
 
+The confirm dialog is used to make the user confirm an action before it is executed. An example of an implementation can be seen in \lstref{lst:impl_confirm_dialog}. One should implement the \androidinline{GirafConfrimDialog.Confirmation} interface as in \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:interface}. In \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:newinstance}, we create an instance of the \androidinline{GirafConfirmDialog}, and in \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:show} the method \androidinline{show} is called, that shows the dialog.
+
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of confirm dialog},
+    label = {lst:impl_confirm_dialog},
+]{content/appendix/how_to_use_dialogs/code_snippets/confirm_dialog.java}
+
+When the dialog is shown it will look something like \figrefpage{fig:confirm_dialog}, both buttons on the dialog hides the dialog from default, if one would like that the acceptance button (left one) does something extra it needs to be handled in the method as seen in \lstreflines{lst:impl_confirm_dialog}{line:confirm_dialog:confirmdialogstart}{line:confirm_dialog:confirmdialogend}. This method is called whenever an acceptance button is pressed on a \androidinline{GirafConfirmDialog} and the identifier \androidinline{dialogIdentifier} determines which dialog was clicked. In this example there is only one identifier \androidinline{CONFIRM_DIALOG_ID}.
 
 
 \section{Notify dialog}
 \label{sec:impl_notify_dialog}
 
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of notify dialog},
+    label = {lst:impl_notify_dialog},
+]{content/appendix/how_to_use_dialogs/code_snippets/notify_dialog.java}
+
 \section{Profileselector dialog}
-\label{sec:profileselector_dialog}
+\label{sec:impl_profileselector_dialog}
+
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of single profile selector dialog},
+    label = {lst:impl_single_profileselector_dialog},
+]{content/appendix/how_to_use_dialogs/code_snippets/single_profile_selector_dialog.java}
+
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of multi profile selector dialog},
+    label = {lst:impl_multi_profileselector_dialog},
+]{content/appendix/how_to_use_dialogs/code_snippets/multi_profile_selector_dialog.java}
 
 \section{Waiting dialog}
-\label{sec:waiting_dialog}
+\label{sec:impl_waiting_dialog}
+
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of waiting dialog},
+    label = {lst:impl_waiting_dialog},
+]{content/appendix/how_to_use_dialogs/code_snippets/waiting_dialog.java}
 
 \section{Inflatable dialog}
-\label{sec:inflatable_dialog}
+\label{sec:impl_inflatable_dialog}
+
+\lstinputlisting[
+    style = xml,
+    caption = {The custom layout for an inflateable dialog},
+    label = {lst:impl_waiting_dialog_layout},
+]{content/appendix/how_to_use_dialogs/code_snippets/example_layout.xml}
+
+\lstinputlisting[
+    style = java,
+    caption = {The implementation of the inflatable dialog},
+    label = {lst:impl_waiting_dialog_layout},
+]{content/appendix/how_to_use_dialogs/code_snippets/inflatable_dialog.java}

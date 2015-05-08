@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- An analog clock to be shown in the dialog -->
+    <AnalogClock
+        android:id="@+id/analogClock"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center" />
+
+    <!-- The container for buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- A button to close the dialog -->
+        <dk.aau.cs.giraf.gui.GirafButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:icon="@drawable/icon_cancel"
+            app:text="Close clock dialog" />
+
+    </LinearLayout>
+
+</LinearLayout>
