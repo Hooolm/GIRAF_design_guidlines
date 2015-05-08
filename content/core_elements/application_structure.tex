@@ -70,10 +70,10 @@ Bottom bars must be entirely contextual and depend on the current content displa
 \end{note}
 
 \begin{figure}[!htbp]
-        \centering
-        \includegraphics[width=0.75\textwidth]{pictures/application_structure/bottombar}
-        \caption{Bottom bar example}
-        \label{fig:bottom_bar_example}
+    \centering
+    \includegraphics[width=0.75\textwidth]{pictures/application_structure/bottombar}
+    \caption{Bottom bar example}
+    \label{fig:bottom_bar_example}
 \end{figure}
 
 \FloatBarrier
@@ -86,6 +86,82 @@ The main content of applications should focused in the center of the layout and 
 \begin{note}
 We recommend using Android \androidinline{Fragment} instances to manage content of an \androidinline{Activity} if the main content of an Android \androidinline{Activity} needs to change between different content that needs to be controlled differently. 
 \end{note}
+
+\FloatBarrier
+
+
+\section{Combinations of Bars}
+\index{Bars}
+You might want to combine usages of the bars mentioned in the previous sections. This section will describe the different possible combinations of bars.
+
+\subsection{Combination \#1}
+\index{Layout}
+\index{Top bar}
+\index{Bars!Top bar}
+This is the most commonly used ``combination'' of bars (just the top bar actually). Since the top bar is required for all layouts this will be the base for the next combinations. \figref{fig:bar_combinations_1} shows an illustration of the layout using only the top bar. Please notice that the dark gray area is the top bar while the lighter gray is the actual content of the activity.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{pictures/application_structure/bar_combinations_1}
+    \caption{Layout example with only the top bar}
+    \label{fig:bar_combinations_1}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Combination \#2}
+\index{Layout}
+\index{Side bar}
+\index{Top bar}
+\index{Bars!Top bar}
+\index{Bars!Side bar}
+If the content of the application needs to be switched out or replaced at some point, one may want to use a side bar. \figref{fig:bar_combinations_2} shows an illustration of such a layout using a top (darkest gray) bar and a side bar (dark gray). The content of the application is the light gray color.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{pictures/application_structure/bar_combinations_2}
+    \caption{Layout example with both a side bar and a top bar}
+    \label{fig:bar_combinations_2}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Combination \#3}
+\index{Layout}
+\index{Side bar}
+\index{Top bar}
+\index{Bottom bar}
+\index{Bars!Top bar}
+\index{Bars!Side bar}
+\index{Bars!Bottom bar}
+If the content of the application needs to be switched out or replaced at some point, one may want to use a side bar. If the content that is replaced needs to be managed somehow a bottom bar can be used. \figref{fig:bar_combinations_3} shows an illustration of such a layout using a top (darker gray) bar, a side bar (dark gray), and a bottom bar (darkest gray). The content of the application is the light gray color.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{pictures/application_structure/bar_combinations_3}
+    \caption{Layout example with both a side bar, a top bar, and a bottom bar}
+    \label{fig:bar_combinations_3}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Combination \#4}
+\index{Layout}
+\index{Side bar}
+\index{Top bar}
+\index{Bottom bar}
+\index{Bars!Top bar}
+\index{Bars!Side bar}
+\index{Bars!Bottom bar}
+If the content of the application needs to be switched out or replaced at some point, one may want to use a side bar. If the content that is replaced (and side menu) needs to be managed somehow a bottom bar can be used. \figref{fig:bar_combinations_4} shows an illustration of such a layout using a top (darker gray) bar, a side bar (dark gray), and a bottom bar (darkest gray). The content of the application is the light gray color.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.35\textwidth]{pictures/application_structure/bar_combinations_4}
+    \caption{Layout example with both a side bar, a top bar, and a bottom bar}
+    \label{fig:bar_combinations_4}
+\end{figure}
+
 
 
 \section{Clickable Elements}
