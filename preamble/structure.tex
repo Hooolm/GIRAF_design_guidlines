@@ -21,15 +21,23 @@
 
 \usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,headsep=10pt,a4paper]{geometry} % Page margins
 
-\usepackage[table,xcdraw]{xcolor} % Required for specifying colors by name
+\usepackage[table,xcdraw,usenames, dvipsnames]{xcolor} % Required for specifying colors by name
+\usepackage{colortbl}
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
 \definecolor{rightexample}{RGB}{31,181,0}
 \definecolor{wrongexample}{RGB}{238,41,18}
+\definecolor{eclipse_blue}{RGB}{46,55,247}
+\definecolor{eclipse_red}{RGB}{147,86,135}
 
+% Used for longtables
 \usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{ltxtable}
 
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\usepackage{placeins} % Required for floatbarrier
 
 \usepackage{lipsum} % Inserts dummy text
 
@@ -558,11 +566,13 @@ addtohook={%
 }
 
 %----------------------------------------------------------------------------------------
-%	COMMANDS TO DISPLAY NAMES
+%	COMMANDS
 %----------------------------------------------------------------------------------------
 
-% GIRAF
-\newcommand{\giraf}[0]{\textit{GIRAF}\xspace}
-
-% Giraf-componenets
-\newcommand{\gc}[0]{\giraf \textit{components}\xspace}
+\input{preamble/commands/figures}
+\input{preamble/commands/formats}
+\input{preamble/commands/names}
+\input{preamble/commands/pages}
+\input{preamble/commands/references}
+\input{preamble/commands/special_marks}
+\input{preamble/commands/tables}
