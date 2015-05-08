@@ -1,0 +1,5 @@
+%!TEX root = ../../main.tex
+\chapter{Progress Bar}
+\label{cha:progress_bar}
+
+The Android framework includes a widget called \androidinline{ProgressBar} which can be used both as an activity indicator (see Figure \ref{fig:dialog_waiting}), and as an actual progress bar. Both usages of the word will henceforth be referred to as just \androidinline{ProgressBar}, unless otherwise made explicit. Both are great at indicating that the application is not frozen and that something is going on. The ProgressBar (as a progress bar) should generally be used when there is a reliable way of calculating the actual progress on the running task. The Activity indicator should generally be used when there is no way of telling how long there will be until the task is complete. \\
