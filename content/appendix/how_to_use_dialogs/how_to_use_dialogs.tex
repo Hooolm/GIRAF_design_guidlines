@@ -10,16 +10,28 @@ When using the various dialogs implemented in the \gc, it is important that one 
     label = {lst:build_gradle},
 ]{content/appendix/how_to_use_dialogs/code_snippets/build.gradle}
 \noindent
-The dialogs is an extension of the android class \androidinline{DialogFragment}, meaning that all dialogs is handled as fragments. This means that callbacks from the dialogs is done using interfaces, which the activity starting them should implement. Through out the description of these dialogs there will be talked about a method called \androidinline{onActionButtonClick} which is an event that is called whenever some gui element is clicked, eg. when a button is clicked. Also note that in all of the following code snippets there is declared a string tag (\androidinline{DIALOG_TAG}) this is a tag that the Android system needs to handle fragments. However in many of the code snippets there also exist an integer (\androidinline{DIALOG_ID}) which is used to call a method in the activity from the fragment.
+The dialogs is an extension of the android class \androidinline{DialogFragment}, meaning that all dialogs is handled as fragments. This means that callbacks from the dialogs is done using interfaces, which the activity starting them should implement. Through out the description of these dialogs there will be talked about a method called \androidinline{onActionButtonClick} which is an event that is called whenever some gui element is clicked, eg. when a button is clicked. This method will in all of the following examples create an instance of the dialog and show it using the \androidinline{show} method.
+\\\\
+Also note that in all of the following code snippets there is declared a string tag (\androidinline{DIALOG_TAG}) this is a tag that the Android system needs to handle fragments. However in many of the code snippets there also exist an integer (\androidinline{DIALOG_ID}) which is used to call a method in the activity from the fragment.
 
 \begin{note}
 	It is important that whenever one creates a dialog one uses the \androidinline{newInstance} method on the specific dialog.
 \end{note}
 
+\begin{note}
+    Remember to call the \androidinline{show} method on the dialog when the dialog should be displayed. Simply instantiating it is not enough.
+\end{note}
+
+\begin{note}
+    It is important to check that it is the correct \androidinline{dialogIdentifier} that is used in the methods implemented from interfaces in order to determine which dialog was actually responded to. 
+\end{note}
+
 \section{Confirm dialog}
 \label{sec:impl_confirm_dialog}
 
-The confirm dialog is used to make the user confirm an action before it is executed. An example of an implementation can be seen in \lstref{lst:impl_confirm_dialog}. One should implement the \androidinline{GirafConfrimDialog.Confirmation} interface as in \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:interface}. In \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:newinstance}, we create an instance of the \androidinline{GirafConfirmDialog}, and in \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:show} the method \androidinline{show} is called, that shows the dialog.
+The confirm dialog is used to make the user confirm an action before it is executed. This section describes how one could implement an confirm dialog as described in \secref{sec:confirm_dialog}. An example of such an implementation can be seen in \lstref{lst:impl_confirm_dialog}.
+\\\\
+Using the \androidinline{GirafConfrimDialog.Confirmation} interface (\lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:interface}) allows the activity (\androidinline{ExampleActivity}) to implement the method \androidinline{confirmDialog}, as in \lstrefline{lst:impl_confirm_dialog}{line:confirm_dialog:confirmdialogstart}, that will be called from the dialog whenever a response has been made for it (when the user press the acceptance button).  
 
 \lstinputlisting[
     style = java,
@@ -27,11 +39,14 @@ The confirm dialog is used to make the user confirm an action before it is execu
     label = {lst:impl_confirm_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/confirm_dialog.java}
 
-When the dialog is shown it will look something like \figrefpage{fig:confirm_dialog}, both buttons on the dialog hides the dialog from default, if one would like that the acceptance button (left one) does something extra it needs to be handled in the method as seen in \lstreflines{lst:impl_confirm_dialog}{line:confirm_dialog:confirmdialogstart}{line:confirm_dialog:confirmdialogend}. This method is called whenever an acceptance button is pressed on a \androidinline{GirafConfirmDialog} and the identifier \androidinline{dialogIdentifier} determines which dialog was clicked. In this example there is only one identifier \androidinline{CONFIRM_DIALOG_ID}.
-
+\noindent
+The default behavior of buttons in the dialog is to dismiss it. The acceptance button will furthermore call the \androidinline{confirmDialog} with the identifier \androidinline{CONFIRM_DIALOG_ID}, as in \lstreflines{lst:impl_confirm_dialog}{line:confirm_dialog:confirmdialogstart}{line:confirm_dialog:confirmdialogend}.
 
 \section{Notify dialog}
 \label{sec:impl_notify_dialog}
+The notify dialog is used to make the user aware of some event. This section described how one could implement an notify dialog as described in \secref{sec:notify_dialog}. An example of such an implementation can be seen in \lstref{lst:impl_notify_dialog}.
+\\\\
+Using the \androidinline{GirafNotify.Notification} interface (\lstrefline{lst:impl_confirm_dialog}{line:notify_dialog:interface}) allows the activity (\androidinline{ExampleActivity}) to implement the method \androidinline{noticeDialog}, as in \lstrefline{lst:impl_notify_dialog}{line:notify_dialog:noticedialogstart}, that will be called from the dialog whenever a response has been made for it (when the user press the button).  
 
 \lstinputlisting[
     style = java,
@@ -39,8 +54,18 @@ When the dialog is shown it will look something like \figrefpage{fig:confirm_dia
     label = {lst:impl_notify_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/notify_dialog.java}
 
+\noindent
+The default behavior the button in the dialog is to dismiss it. The button will furthermore call the \androidinline{confirmDialog} with the identifier \androidinline{NOTIFY_DIALOG_ID}, as in \lstreflines{lst:impl_confirm_dialog}{line:notify_dialog:noticedialogstart}{line:notify_dialog:noticedialogend}.
+
 \section{Profileselector dialog}
 \label{sec:impl_profileselector_dialog}
+
+The profile selector dialog is used to allow for user to select one ore more profiles. This section describes how one could implement an confirm dialog as described in \secref{sec:profileselector_dialog}. Examples of such an implementation can be seen in \lstref{lst:impl_single_profileselector_dialog} and \lstref{lst:impl_multi_profileselector_dialog}.
+\\\\
+This dialog is used in two use cases. One where the user wants to select exactly one profiles, and another use case where one wants to select arbitrary many profiles. Using the \androidinline{GirafProfileSelectorDialog.OnSingleProfileSelectedListener} interface allows for the activity (\androidinline{ExampleActivity}) to respond on a single selected profile as in \lstrefline{lst:impl_single_profileselector_dialog}{line:single_profile_selector:interface}. Where as the \androidinline{GirafProfileSelectorDialog.OnMultipleProfilesSelectedListener} allows for the activity to respond on multi selected profiles an in \lstrefline{lst:impl_multi_profileselector_dialog}{line:multi_profile_selector:interface}.
+\begin{note}
+    Observe that the main difference between the instantiating of the single and multi version of the profile selector dialog is the fourth argument called \androidinline{selectMultipleProfiles}. That determines which interface will be called. If this boolean is set to \androidinline{true} the activity should implement \androidinline{GirafProfileSelectorDialog.OnMultiProfileSelectedListener} otherwise the activity should implement \androidinline{GirafProfileSelectorDialog.OnSingleProfileSelectedListener}. Obviously if an activity have one dialog of each type both interfaces should be implemented.
+\end{note}
 
 \lstinputlisting[
     style = java,
@@ -48,11 +73,17 @@ When the dialog is shown it will look something like \figrefpage{fig:confirm_dia
     label = {lst:impl_single_profileselector_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/single_profile_selector_dialog.java}
 
+\noindent
+When a profile is clicked in a single profile selector the \androidinline{onProfileSelected} method is called, with the profile that was selected and the identifier \androidinline{PROFILE_SELECT_DIALOG_ID} as in \lstreflines{lst:impl_single_profileselector_dialog}{line:single_profile_selector:onprofileselectedstart}{line:single_profile_selector:onprofileselectedend}.
+
 \lstinputlisting[
     style = java,
     caption = {Implementaion of multi profile selector dialog},
     label = {lst:impl_multi_profileselector_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/multi_profile_selector_dialog.java}
+
+\noindent
+When a profile is clicked in a multi profile selector the \androidinline{onProfilesSelected} method is called, with a list of profiles and a boolean telling of they were marked or not alongside the identifier \androidinline{PROFILE_SELECT_DIALOG_ID} as in \lstreflines{lst:impl_multi_profileselector_dialog}{line:multi_profile_selector:onprofilesselectedstart}{line:multi_profile_selector:onprofilesselectedend}.
 
 \section{Waiting dialog}
 \label{sec:impl_waiting_dialog}

@@ -1,4 +1,4 @@
-public class ExampleActivity extends GirafActivity implements GirafProfileSelectorDialog.OnSingleProfileSelectedListener {
+public class ExampleActivity extends GirafActivity implements GirafProfileSelectorDialog.OnSingleProfileSelectedListener { //* \label{line:single_profile_selector:interface}
 
     // Identifier for callback
     private static final int PROFILE_SELECT_DIALOG_ID = 1; 
@@ -21,11 +21,11 @@ public class ExampleActivity extends GirafActivity implements GirafProfileSelect
     }
 
     @Override
-    public void onProfileSelected(int dialogIdentifier, Profile profile) {
+    public void onProfileSelected(int dialogIdentifier, Profile profile) { //* \label{line:single_profile_selector:onprofileselectedstart}
         if(dialogIdentifier == PROFILE_SELECT_DIALOG_ID) {
             // Perform some action based on the profile selected
         }
-    }
+    }   //* \label{line:single_profile_selector:onprofileselectedend}
 
     private long getGuardianIdentifier() {
         // Some code that returns the wanted guardian identifier
