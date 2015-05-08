@@ -1,4 +1,4 @@
-public class ExampleActivity extends GirafActivity implements GirafNotifyDialog.Notification {
+public class ExampleActivity extends GirafActivity implements GirafNotifyDialog.Notification { //* \label{line:notify_dialog:interface}
 
     // Identifier for callback
     private static final int NOTIFY_DIALOG_ID = 1; 
@@ -21,9 +21,9 @@ public class ExampleActivity extends GirafActivity implements GirafNotifyDialog.
     }
 
     @Override
-    public void noticeDialog(int dialogIdentifier) {
+    public void noticeDialog(int dialogIdentifier) { //* \label{line:notify_dialog:noticedialogstart}
         if(dialogIdentifier == NOTIFY_DIALOG_ID) {
             // Perform some action after the notification
         }
-    }
+    } //* \label{line:notify_dialog:noticedialogend}
 }
