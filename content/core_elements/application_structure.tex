@@ -8,7 +8,7 @@
 \index{Top bar}
 All activities in every application, except the home-activity in the Launcher-application,  must have a top bar. This top bar should look like the example in \figref{fig:top_bar_example}. This top bar should provide a short and simple title with enough information to allow the user to know where in the application he or she is. The height of the top bar must be $56dp$. Furthermore, this top bar must include at the two buttons described in \secref{sec:back_button} and \secref{sec:help_button}.
 
-\todo{Add reference to the colors use and describe the gradient}
+\todo{Add reference to the colors used and describe the gradient}
 
 \begin{figure}[!htbp]
         \centering
@@ -41,11 +41,17 @@ The right-most button in the top bar must be a help button. This button must pro
 \section{Side Bar}
 \index{Side bar}
 
-Side bars need not, but may be contextual. Side bars may be used to switch between content of applications - for instance if the application is split into two parts (side bar and content). A side bar should look like \figref{fig:side_bar_example}. Side bars may not use more than $20\%$ of the total screen estate.
+Side bars need not, but may be contextual. Side bars may be used to switch between content of applications - for instance if the application is split into two parts (side bar and content). A side bar should look like \figref{fig:side_bar_example}. Side bars may not use more than $20\%$ of the total screen estate. When using a side bar it must appear on the left side of the screen. The height of the side bar must be exactly the same as the container that it is inside.
+
+\todo{Add reference to the colors used and describe the gradient}
+
+\begin{note}
+    \todo[inline]{Write a note describing how this can be made using \gc}
+\end{note}
 
 \begin{figure}[!htbp]
         \centering
-        \includegraphics[width=0.25\textwidth]{pictures/application_structure/sidebar}
+        \includegraphics[width=0.20\textwidth]{pictures/application_structure/sidebar}
         \caption{Side bar example}
         \label{fig:side_bar_example}
 \end{figure}
@@ -55,7 +61,13 @@ Side bars need not, but may be contextual. Side bars may be used to switch betwe
 
 \section{Bottom bar}
 \index{Bottom bar}
-Bottom bars should be entirely contextual and depend on the current content displayed in the current \androidinline{Activity}. A bottom bar should look like \figref{fig:bottom_bar_example}.
+Bottom bars must be entirely contextual and depend on the current content displayed in the current activity. A bottom bar should look like \figref{fig:bottom_bar_example}.
+
+\todo{Add reference to the colors used and describe the gradient}
+
+\begin{note}
+    \todo[inline]{Write a note describing how this can be made using \gc}
+\end{note}
 
 \begin{figure}[!htbp]
         \centering
@@ -68,7 +80,8 @@ Bottom bars should be entirely contextual and depend on the current content disp
 
 
 \section{Content}
-The main content of applications should be in the center of the layout and any menu bars should be above, under, and to the sides of the main content. 
+\index{Layout content}
+The main content of applications should focused in the center of the layout and any menu bars should be above, under, and to the sides of the main content. 
 
 \begin{note}
 We recommend using Android \androidinline{Fragment} instances to manage content of an \androidinline{Activity} if the main content of an Android \androidinline{Activity} needs to change between different content that needs to be controlled differently. 
