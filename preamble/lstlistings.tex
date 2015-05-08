@@ -1,4 +1,4 @@
-%!TEX root = ../../super_main.tex
+%!TEX root = ../main.tex
 
 % Packages used
 \usepackage{listings}
@@ -14,7 +14,7 @@
 {
     backgroundcolor = \color{white},
     keywordstyle = \color{blue},
-    commentstyle = \color{gray!75}\textit,
+    commentstyle = \color{code_gray}\textit,
     stringstyle = \color{green},
     basicstyle = \scriptsize\ttfamily,
     numberstyle = \tiny,
@@ -48,9 +48,68 @@
     breaklines = true,
     language = Java,
     columns = fullflexible,
-    stringstyle=\color{eclipse_blue},
-    morekeywords=[1]{class, return}, 
-    keywordstyle=[1]\color{eclipse_red}
+    stringstyle=\color{code_blue},
+    morekeywords=[1]{class, return},
+    morekeywords=[2]{@Override},
+    keywordstyle=[1]\color{code_red},
+    keywordstyle=[2]\color{Bittersweet}
+}
+
+% Define a Groovy Language
+\lstdefinelanguage{Groovy}[]{Java}{%
+  keywordstyle=\color{code_blue}\bfseries,
+  stringstyle=\color{code_red}\ttfamily,
+  keywords=[3]{each, findAll, groupBy, collect, inject, eachWithIndex},
+  morekeywords={def, as, in, use},
+  moredelim=[is][\textcolor{darkgray}]{\%\%}{\%\%},
+  moredelim=[il][\textcolor{darkgray}]{§§}
+}
+
+% Define a style for gradle
+\lstdefinestyle{gradle}
+{
+    breaklines = true,
+    language = Groovy,
+    columns = fullflexible,
+}
+
+% Define the XML language
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{code_darkblue},
+  keywordstyle=\color{code_cyan},
+  morekeywords={xmlns,version,type, android:}
+  morecomment=[l][\color{code_red}\ttfamily]{androdid:}, 
+  morecomment = [n]{<!--}{--!>}
+}
+
+\lstdefinelanguage{XML_android}
+{
+    alsoletter=-,
+    basicstyle=\ttfamily\footnotesize,
+    morestring=[b]",
+    moredelim=*[s][\color{code_darkblue}]{<}{\ },
+    moredelim=[s][\color{code_darkblue}]{</}{>},
+    moredelim=[l][\color{code_darkblue}]{/>},
+    moredelim=[l][\color{code_darkblue}]{>},
+    morecomment=[s]{<?}{?>},
+    morecomment=[s]{<!--}{-->},
+    morecomment=[s]{<!}{>},
+    commentstyle=\color{code_gray},
+    stringstyle=\color{code_cyan},
+    identifierstyle=\color{black}
+}
+
+% Custom lststyle named java
+\lstdefinestyle{xml}
+{
+    breaklines = true,
+    language = XML_android,
+    columns = fullflexible,
 }
 
 % Custom lstinline for Java named javainline
