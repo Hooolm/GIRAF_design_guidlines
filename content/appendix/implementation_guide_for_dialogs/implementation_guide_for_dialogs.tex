@@ -1,6 +1,6 @@
 %!TEX root = ../../../main.tex
-\chapter{How to use dialogs}
-\label{app:how_to_use_dialogs}
+\chapter{Implementation Guide for Dialogs}
+\label{cha:implementation_guide_for_dialogs}
 
 When using the various dialogs implemented in the \gc, it is important that one uses the support library, this is done by including the support library in the gradle build file as seen in \lstref{lst:build_gradle}.
 
@@ -8,7 +8,7 @@ When using the various dialogs implemented in the \gc, it is important that one 
     style = gradle,
     caption = {build.gradle},
     label = {lst:build_gradle},
-]{content/appendix/how_to_use_dialogs/code_snippets/build.gradle}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/build.gradle}
 \noindent
 The dialogs is an extension of the android class \androidinline{DialogFragment}, meaning that all dialogs is handled as fragments. This means that callbacks from the dialogs is done using interfaces, which the activity starting them should implement. Through out the description of these dialogs there will be talked about a method called \androidinline{onActionButtonClick} which is an event that is called whenever some gui element is clicked, eg. when a button is clicked. This method will in all of the following examples create an instance of the dialog and show it using the \androidinline{show} method.
 \\\\
@@ -37,7 +37,7 @@ Using the \androidinline{GirafConfrimDialog.Confirmation} interface (\lstrefline
     style = java,
     caption = {Implementaion of confirm dialog},
     label = {lst:impl_confirm_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/confirm_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/confirm_dialog.java}
 
 \noindent
 The default behavior of buttons in the dialog is to dismiss it. The acceptance button will furthermore call the \androidinline{confirmDialog} with the identifier \androidinline{CONFIRM_DIALOG_ID}, as in \lstreflines{lst:impl_confirm_dialog}{line:confirm_dialog:confirmdialogstart}{line:confirm_dialog:confirmdialogend}.
@@ -52,7 +52,7 @@ Using the \androidinline{GirafNotify.Notification} interface (\lstrefline{lst:im
     style = java,
     caption = {Implementaion of notify dialog},
     label = {lst:impl_notify_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/notify_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/notify_dialog.java}
 
 \noindent
 The default behavior the button in the dialog is to dismiss it. The button will furthermore call the \androidinline{confirmDialog} with the identifier \androidinline{NOTIFY_DIALOG_ID}, as in \lstreflines{lst:impl_confirm_dialog}{line:notify_dialog:noticedialogstart}{line:notify_dialog:noticedialogend}.
@@ -71,7 +71,7 @@ This dialog is used in two use cases. One where the user wants to select exactly
     style = java,
     caption = {Implementaion of single profile selector dialog},
     label = {lst:impl_single_profileselector_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/single_profile_selector_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/single_profile_selector_dialog.java}
 
 \noindent
 When a profile is clicked in a single profile selector the \androidinline{onProfileSelected} method is called, with the profile that was selected and the identifier \androidinline{PROFILE_SELECT_DIALOG_ID} as in \lstreflines{lst:impl_single_profileselector_dialog}{line:single_profile_selector:onprofileselectedstart}{line:single_profile_selector:onprofileselectedend}.
@@ -80,7 +80,7 @@ When a profile is clicked in a single profile selector the \androidinline{onProf
     style = java,
     caption = {Implementaion of multi profile selector dialog},
     label = {lst:impl_multi_profileselector_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/multi_profile_selector_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/multi_profile_selector_dialog.java}
 
 \noindent
 When a profile is clicked in a multi profile selector the \androidinline{onProfilesSelected} method is called, with a list of profiles and a boolean telling of they were marked or not alongside the identifier \androidinline{PROFILE_SELECT_DIALOG_ID} as in \lstreflines{lst:impl_multi_profileselector_dialog}{line:multi_profile_selector:onprofilesselectedstart}{line:multi_profile_selector:onprofilesselectedend}.
@@ -101,7 +101,7 @@ This dialog is often used when some thread syncing tasks is running (see \appref
     style = java,
     caption = {Implementaion of waiting dialog},
     label = {lst:impl_waiting_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/waiting_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/waiting_dialog.java}
 
 \section{Custom buttons dialog}
 \label{sec:impl_custom_buttons}
@@ -118,7 +118,7 @@ Using the \androidinline{GirafCustomButtonsDialog.CustomButtons} (\lstrefline{ls
     style = java,
     caption = {Implementaion of custom buttons dialog},
     label = {lst:impl_custom_buttons},
-]{content/appendix/how_to_use_dialogs/code_snippets/custom_buttons_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/custom_buttons_dialog.java}
 
 \noindent
 Before the dialog is created the \androidinline{fillButtonContainer} method is called, see \lstreflines{lst:impl_custom_buttons}{line:custom_buttons_dialog:fillbuttonstart}{line:custom_buttons_dialog:fillbuttonend}. The identifier \androidinline{CUSTOM_BUTTONS_DIALOG_ID} determines which dialog is being filled with buttons.
@@ -134,7 +134,7 @@ When creating an instance of this type of dialog the \androidinline{newInstance}
     style = java,
     caption = {The implementation of the inflatable dialog},
     label = {lst:impl_inflatable_dialog},
-]{content/appendix/how_to_use_dialogs/code_snippets/inflatable_dialog.java}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/inflatable_dialog.java}
 
 \noindent
 Using the \androidinline{GirafInflatableDialog.OnCustomViewCreatedListener} interface (\lstrefline{lst:impl_inflatable_dialog}{line:inflatable_dialog:interface}) allows for the developer to access the custom created layout by the \androidinline{editCustomView} method. See \lstreflines{lst:impl_inflatable_dialog}{line:inflatable_dialog:accesscustomviewstart}{line:inflatable_dialog:accesscustomviewend} for an example of how one access the custom view. 
@@ -147,4 +147,4 @@ Using the \androidinline{GirafInflatableDialog.OnCustomViewCreatedListener} inte
     style = xml,
     caption = {The custom layout for an inflateable dialog},
     label = {lst:impl_inflatable_dialog_layout},
-]{content/appendix/how_to_use_dialogs/code_snippets/example_layout.xml}
+]{content/appendix/implementation_guide_for_dialogs/code_snippets/example_layout.xml}
