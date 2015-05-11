@@ -9,12 +9,12 @@ public class ExampleActivity extends GirafActivity {
     private class ExampleTask extends AsyncTask<Void, Void, Void> {
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute() { 
             super.onPreExecute();
 
             // Shows the dialog
-            waitingDialog.show(getSupportFragmentManager(), WAITING_DIALOG_TAG);
-        }
+            waitingDialog.show(getSupportFragmentManager(), WAITING_DIALOG_TAG); //* \label{line:waiting_dialog:showdialog}
+        } 
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -26,18 +26,18 @@ public class ExampleActivity extends GirafActivity {
             super.onPostExecute(aVoid);
 
             // Hides the dialog
-            waitingDialog.dismiss();
+            waitingDialog.dismiss(); //* \label{line:waiting_dialog:dismissdialog}
         }
     }
 
     ...
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
 
         // Initialize the waiting dialog
-        waitingDialog = GirafWaitingDialog.newInstance("Please wait", "We are currently performing a task that takes time");
+        waitingDialog = GirafWaitingDialog.newInstance("Please wait", "We are currently performing a task that takes time"); //* \label{line:waiting_dialog:oncreate}
     }
 
     /**
@@ -47,7 +47,7 @@ public class ExampleActivity extends GirafActivity {
     public void onActionButtonClick(View view) {
 
         // Starts a tasks
-        new ExampleTask().execute();
+        new ExampleTask().execute(); //* \label{line:waiting_dialog:executetask}
     }
 
 }

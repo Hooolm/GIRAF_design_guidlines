@@ -1,7 +1,6 @@
 %!TEX root = ../../../main.tex
 \chapter{How to use dialogs}
 \label{app:how_to_use_dialogs}
-\todo[inline]{Describe GirafCustomButtonsDialog}
 
 When using the various dialogs implemented in the \gc, it is important that one uses the support library, this is done by including the support library in the gradle build file as seen in \lstref{lst:build_gradle}.
 
@@ -90,10 +89,13 @@ When a profile is clicked in a multi profile selector the \androidinline{onProfi
 \label{sec:impl_waiting_dialog}
 
 The waiting dialog is used to indicate to the user that some task is being executed and that he/she should wait for that task to end. This section describes how one could implement an waiting dialog as described in \secref{sec:waiting_dialog}.
-\\\\
-This dialog is often used when some thread syncing tasks is running (see \appref{app:threading_asynctask}).
 
-\todo[inline]{finish this section}
+\begin{note}
+    Note that in this dialog the dialog is instantiated in the \androidinline{onCreate} method (see \lstrefline{lst:impl_waiting_dialog}{line:waiting_dialog:oncreate}), and is called showed implicitly by the \androidinline{onActionButtonClick} method which starts the async task (see \lstrefline{lst:impl_waiting_dialog}{line:waiting_dialog:executetask}.
+\end{note}
+
+\noindent
+This dialog is often used when some thread syncing tasks is running (see \appref{app:threading_asynctask}). This dialog requires not interface to work properly. Good practice with this dialog is to show it before the long task is executed. This can be done using the \androidinline{onPreExecute} method (see \lstrefline{lst:impl_waiting_dialog}{line:waiting_dialog:showdialog}). One should dismiss the dialog after the task is done which can be handled in \androidinline{onPostExecute} method (see \lstrefline{lst:impl_waiting_dialog}{line:waiting_dialog:dismissdialog}).
 
 \lstinputlisting[
     style = java,
@@ -101,17 +103,48 @@ This dialog is often used when some thread syncing tasks is running (see \appref
     label = {lst:impl_waiting_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/waiting_dialog.java}
 
+\section{Custom buttons dialog}
+\label{sec:impl_custom_buttons}
+
+The custom buttons dialog is used when the developer wants to provide the user with more than two buttons in the dialog. This section described how one coul dimplement an custom buttons dialog as described in \secref{sec:custom_buttons_dialog}.
+\\\\
+Using the \androidinline{GirafCustomButtonsDialog.CustomButtons} (\lstrefline{lst:impl_custom_buttons}{line:custom_buttons_dialog:interface}) interface allows for the developer to add abitrary many buttons to the dialog.
+
+\begin{note}
+    There is no limit on buttons that can be added to the dialog, but one should be careful that the design is consistent. The width should not exceed the width of other dialogs.
+\end{note}
+
+\lstinputlisting[
+    style = java,
+    caption = {Implementaion of custom buttons dialog},
+    label = {lst:impl_custom_buttons},
+]{content/appendix/how_to_use_dialogs/code_snippets/custom_buttons_dialog.java}
+
+\noindent
+Before the dialog is created the \androidinline{fillButtonContainer} method is called, see \lstreflines{lst:impl_custom_buttons}{line:custom_buttons_dialog:fillbuttonstart}{line:custom_buttons_dialog:fillbuttonend}. The identifier \androidinline{CUSTOM_BUTTONS_DIALOG_ID} determines which dialog is being filled with buttons.
+
 \section{Inflatable dialog}
 \label{sec:impl_inflatable_dialog}
 
-\lstinputlisting[
-    style = xml,
-    caption = {The custom layout for an inflateable dialog},
-    label = {lst:impl_waiting_dialog_layout},
-]{content/appendix/how_to_use_dialogs/code_snippets/example_layout.xml}
+The inflatable dialog is used to create more custom dialogs and want some custom gui elements to be shown in the dialog. In this example we have created a custom dialog that contains an AnalogClock element and a button to dismiss the dialog.
+\\\\
+When creating an instance of this type of dialog the \androidinline{newInstance} method takes an layout resource as third argument. The argument \androidinline{R.layout.example} as seen in \lstrefline{lst:impl_inflatable_dialog}{line:inflatable_dialog:layoutres} comes from the layout seen in \lstref{lst:impl_inflatable_dialog_layout}.
 
 \lstinputlisting[
     style = java,
     caption = {The implementation of the inflatable dialog},
-    label = {lst:impl_waiting_dialog_layout},
+    label = {lst:impl_inflatable_dialog},
 ]{content/appendix/how_to_use_dialogs/code_snippets/inflatable_dialog.java}
+
+\noindent
+Using the \androidinline{GirafInflatableDialog.OnCustomViewCreatedListener} interface (\lstrefline{lst:impl_inflatable_dialog}{line:inflatable_dialog:interface}) allows for the developer to access the custom created layout by the \androidinline{editCustomView} method. See \lstreflines{lst:impl_inflatable_dialog}{line:inflatable_dialog:accesscustomviewstart}{line:inflatable_dialog:accesscustomviewend} for an example of how one access the custom view. 
+
+\begin{note}
+    One cannot access the custom inflated view before the \androidinline{editCustomView} is called from the dialog it self.
+\end{note}
+
+\lstinputlisting[
+    style = xml,
+    caption = {The custom layout for an inflateable dialog},
+    label = {lst:impl_inflatable_dialog_layout},
+]{content/appendix/how_to_use_dialogs/code_snippets/example_layout.xml}
