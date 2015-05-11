@@ -1,0 +1,20 @@
+%!TEX root = ../../../main.tex
+\chapter{Customization of action bar}
+\label{app:customization_of_action_bar}
+
+If one wants to customize the action bar, the \androidinline{GirafActivity} provides the possibility to change the title of the action bar and the possibility of adding \androidinline{GirafButton}s to the action bar. The action bar looks like the one in \figrefpage{fig:top_bar_example}. 
+
+\begin{note}
+    This actionbar is only available to activities that extends the \androidinline{GirafActivity}.
+\end{note}
+
+\noindent
+From default the title in the top bar is the label of the application, how ever if one wants to customize it the \androidinline{setActionBarTitle} method can be used as seen in \lstrefline{lst:customized_action_bar}{line:actionbar:title}.
+\\\\
+The action bar always have a back button shown that does the same as the standard android back button. If one wants to add more buttons to the action bar one can use the \androidinline{addGirafButtonToActionBar} method. One can then instantiate some \androidinline{GirafButton}s and then use this method as in \lstreflines{lst:customized_action_bar}{line:actionbar:buttonstart}{line:actionbar:buttonend}
+
+\lstinputlisting[
+    style = java,
+    caption = {Customized action bar},
+    label = {lst:customized_action_bar},
+]{content/appendix/customization_of_action_bar/ExampleActivity.java}
