@@ -4,7 +4,7 @@
 \index{Dialog}
 \label{cha:dialog}
 
-When the user has to respond to a specific event, dialogs should be used. A dialog consistes of a title, a description, some buttons and possibly some additional views. In \gc there exists some classes for this purpose. The general layout of a dialog can be seen in \figref{fig:inflatable_dialog}.
+When the user has to respond to a specific event, dialogs should be used. A dialog consistes of a title, a description, some buttons and possibly some additional views. In \gc there exists some classes for this purpose. The general layout of a dialog can be seen in \figref{fig:inflatable_dialog}. For a guide of how these dialogs can be implemented see \appref{app:how_to_use_dialogs}.
 
 \section{Confirm dialog}
 \index{Dialog}
@@ -12,7 +12,7 @@ When the user has to respond to a specific event, dialogs should be used. A dial
 \index{Confirm dialog}
 \label{sec:confirm_dialog}
 
-When a user needs to confirm that some action is going to happen, the confirm dialog should be used as it looks in \figref{fig:confirm_dialog}. \todo{refer to appendix}
+When a user needs to confirm that some action is going to happen, the confirm dialog should be used as it looks in \figref{fig:confirm_dialog}.
 
 \begin{figure}[h]
 	\centering
@@ -28,8 +28,7 @@ When a user needs to confirm that some action is going to happen, the confirm di
 \index{Notify dialog}
 \label{sec:notify_dialog}
 
-When a user needs to be notified that some action has happened, the notify dialog should be used as it looks in \figref{fig:notify_dialog}. \todo{refer to appendix}
-
+When a user needs to be notified that some action has happened, the notify dialog should be used as it looks in \figref{fig:notify_dialog}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\textwidth]{dialog_notify}
@@ -38,13 +37,13 @@ When a user needs to be notified that some action has happened, the notify dialo
 \end{figure}
 \FloatBarrier
 
-\section{Profile Selector Dialog}
+\section{Profile selector dialog}
 \index{Dialog}
 \index{Dialog!Profile selector dialog}
 \index{Profile selector dialog}
 \label{sec:profileselector_dialog}
 
-When a user needs to select a profile in some context, eg. change the current citizen on the tablet, one should use the dialog as it looks in \figref{fig:profile_selector_dialog}. In other use cases where a user might need to select multiple profiles, one should use the dialog as it looks in \figref{fig:profiles_selector_dialog}. \todo{refer to appendix}.
+When a user needs to select a profile in some context, eg. change the current citizen on the tablet, one should use the dialog as it looks in \figref{fig:profile_selector_dialog}. In other use cases where a user might need to select multiple profiles, one should use the dialog as it looks in \figref{fig:profiles_selector_dialog}.
 
 \begin{figure}[!htbp]
     \centering
@@ -66,7 +65,7 @@ When a user needs to select a profile in some context, eg. change the current ci
     \label{fig:profile_selection}
 \end{figure}
 
-\section{Waiting Dialog}
+\section{Waiting dialog}
 \index{Dialog}
 \index{Dialog!Waiting dialog}
 \index{Waiting dialog}
@@ -74,7 +73,7 @@ When a user needs to select a profile in some context, eg. change the current ci
 \index{Background task}
 \label{sec:waiting_dialog}
 
-In cases where the system needs to perform some action that takes a long time to execute (See \secref{sub:long_tasks}), to indicate that the system is not frozen, the waiting dialog, as it looks in \figref{fig:dialog_waiting}, can be used. \todo{refer to appendix}.
+In cases where the system needs to perform some action that takes a long time to execute (See \secref{sub:long_tasks}), to indicate that the system is not frozen, the waiting dialog, as it looks in \figref{fig:dialog_waiting}, can be used.
 
 \begin{note}
     If unused screen real estate is temporarily available at the location onto which elements are currently being loaded, one should place the \androidinline{ProgressBar} in this unused screen real estate. If there is not enough screen real estate available, or if it does not make sense to place the \androidinline{ProgressBar} at the available location, one should use a Dialog with a \androidinline{ProgressBar} instead. An activiy indicator as the \androidinline{ProgressBar} should generally be used when there is no way of telling how long there will be until the task is complete. 
@@ -89,13 +88,29 @@ In cases where the system needs to perform some action that takes a long time to
 \end{figure}
 \FloatBarrier
 
-\subsection{Long Tasks}
+\subsection{Long tasks}
 \index{Long tasks}
 \index{Background task}
 \label{sub:long_tasks}
 Long running tasks should generally not block the GUI. Any task that can potentially take a long time should be done on a background thread and NOT on the main GUI thread. See \appref{app:threading_asynctask} for a detailed description of how to enforce this. 
 
-\section{Inflatable Dialog}
+\section{Custom buttons dialog}
+\index{Dialog}
+\index{Dialog!Custom buttons dialog}
+\index{Custom buttons dialog}
+\label{sec:custom_buttons_dialog}
+
+If one want to have more than two buttons in a dialog the Custom buttons dialog is the best soloution as seen on \figref{fig:custom_buttons_dialog}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\textwidth]{dialog_custom_buttons}
+	\caption{Custom buttons dialog}
+	\label{fig:custom_buttons_dialog}
+\end{figure}
+\FloatBarrier
+
+\section{Inflatable dialog}
 \index{Dialog}
 \index{Dialog!Inflatable dialog}
 \index{Inflatable dialog}
@@ -114,5 +129,3 @@ Some uses of dialogs might be more specific than the ones already existing in \g
 \begin{note}
 	It is important that if buttons should be added to this type of dialog it must be placed in the very bottom of the dialog and should be divided as shown in \figref{fig:inflatable_dialog}. Also note that buttons should be 40dp in height.
 \end{note}
-
-\todo[inline]{Describe GirafCustomButtonsDialog}

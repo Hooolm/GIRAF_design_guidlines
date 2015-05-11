@@ -1,4 +1,4 @@
-public class ExampleActivity extends GirafActivity implements GirafInflatableDialog.OnCustomViewCreatedListener {
+public class ExampleActivity extends GirafActivity implements GirafInflatableDialog.OnCustomViewCreatedListener { //* \label{line:inflatable_dialog:interface}
 
     // Identifier for callback
     private static final Integer CLOCK_DIALOG_ID = 1;
@@ -14,14 +14,14 @@ public class ExampleActivity extends GirafActivity implements GirafInflatableDia
      */
     public void onActionButtonClick(View view) {
         // Creates an instance of the dialog
-        GirafInflatableDialog clockDialog = GirafInflatableDialog.newInstance("Time", "Here is the time on an analog clock", R.layout.example_layout, CLOCK_DIALOG_ID);
+        GirafInflatableDialog clockDialog = GirafInflatableDialog.newInstance("Time", "Here is the time on an analog clock", R.layout.example_layout, CLOCK_DIALOG_ID); //* \label{line:inflatable_dialog:layoutres}
 
         // Show the dialog
         clockDialog.show(getSupportFragmentManager(),CLOCK_DIALOG_TAG);
     }
 
     @Override
-    public void editCustomView(ViewGroup customView, int dialogIdentifier) {
+    public void editCustomView(ViewGroup customView, int dialogIdentifier) { //* \label{line:inflatable_dialog:accesscustomviewstart}
         if(dialogIdentifier == CLOCK_DIALOG_ID) {
             
             // Find the close button defined in xml
@@ -30,5 +30,5 @@ public class ExampleActivity extends GirafActivity implements GirafInflatableDia
             // Do something with the close button eg. set an oClickListener
 
         }
-    }
+    } //* \label{line:inflatable_dialog:accesscustomviewend}
 }
