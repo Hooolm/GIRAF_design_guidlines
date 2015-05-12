@@ -8,8 +8,6 @@
 \label{sec:appearance}
 In the \giraf software-suite there exist various types of images, such as pictograms and profile pictures. Images should be quadratic, have a white background regardless of content and have a black border, as seen in \figref{fig:pictogram_image_view}. 
 
-\todo[inline]{Write about half pictograms in user-applications (hint: this should not be allowed)}
-
 \todo{Refer to black}
 
 \begin{figure}[!htbp]
@@ -47,6 +45,32 @@ The image view should have a 10 dp padding so that the content gets spacing to t
 	\label{fig:pictograms_padding}
 \end{figure} 
 \FloatBarrier
+
+\subsection{Citizen view}
+\label{sub:citizen_view}
+
+When an image is present for a citizen it is not allowed for the image to be incomplete. See \figref{fig:citizen_image_view} for an example of how it should be shown to citizens and an example (\figref{fig:citizen_image_view_correct}) of how it should not be shown to citizens (\figref{fig:citizen_image_view_wrong}). 
+
+\begin{figure}[!htbp]
+    \centering
+
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{citizen_view_correct}
+        \caption{Correct citizen appearance}
+        \label{fig:citizen_image_view_correct}
+    \end{subfigure}
+    \hspace{5em} 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{citizen_view_wrong}
+        \caption{Wrong citizen appearance}
+        \label{fig:citizen_image_view_wrong}
+    \end{subfigure}
+    
+    \caption{Citizen appearance explanation}
+    \label{fig:citizen_image_view}
+\end{figure}
 
 \section{Marking}
 \index{Marking}
