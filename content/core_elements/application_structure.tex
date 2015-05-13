@@ -8,7 +8,7 @@
 \index{Top bar}
 All activities in every application, except the home-activity in the Launcher-application,  must have a top bar. This top bar should look like the example in \figref{fig:top_bar_example}. This top bar should provide a short and simple title with enough information to allow the user to know where in the application he or she is. The height of the top bar must be $56dp$. Furthermore, this top bar must include at the two buttons described in \secref{sec:back_button} and \secref{sec:help_button}. A guide for customization of the action bar can be seen in \appref{app:customization_of_action_bar}
 
-\todo{Add reference to the colors used and describe the gradient}
+\todo[inline]{Add reference to the colors used and describe the gradient}
 
 \begin{figure}[!htbp]
         \centering
@@ -43,7 +43,8 @@ The right-most button in the top bar must be a help button. This button must pro
 
 Side bars need not, but may be contextual. Side bars may be used to switch between content of applications - for instance if the application is split into two parts (side bar and content). A side bar should look like \figref{fig:side_bar_example}. Side bars may not use more than $20\%$ of the total screen estate. When using a side bar it must appear on the left side of the screen. The height of the side bar must be exactly the same as the container that it is inside.
 
-\todo{Add reference to the colors used and describe the gradient}
+\todo[inline]{Mention that sidebar has an exception regarding margin. Markings of items in sidebar should not have margin to the edge of the sidebar}
+\todo[inline]{Add reference to the colors used and describe the gradient}
 
 \begin{note}
     \todo[inline]{Write a note describing how this can be made using \gc}
@@ -63,7 +64,7 @@ Side bars need not, but may be contextual. Side bars may be used to switch betwe
 \index{Bottom bar}
 Bottom bars must be entirely contextual and depend on the current content displayed in the current activity. A bottom bar should look like \figref{fig:bottom_bar_example}.
 
-\todo{Add reference to the colors used and describe the gradient}
+\todo[inline]{Add reference to the colors used and describe the gradient}
 
 \begin{note}
     \todo[inline]{Write a note describing how this can be made using \gc}
@@ -86,6 +87,8 @@ The main content of applications should focused in the center of the layout and 
 \begin{note}
 We recommend using Android \androidinline{Fragment} instances to manage content of an \androidinline{Activity} if the main content of an Android \androidinline{Activity} needs to change between different content that needs to be controlled differently. 
 \end{note}
+
+\todo[inline]{Tell that a screen can never be empty, if you have an empty screen in an activity, add some text to guide the user}.
 
 \FloatBarrier
 
@@ -237,4 +240,6 @@ Each container should provide some padding for its content. This padding should 
 
 \begin{note}
         Whenever the content of the container can be scrolled through (for example a \texttt{GridView}) a property called \texttt{clipToPadding} must be set to \texttt{false}. Please refer to the \href{http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:clipToPadding}{Android documentation} for additional information.
-\end{note}\todo{The effect of this could be explained more clearly using a figure}
+\end{note}\todo[inline]{The effect of this could be explained more clearly using a figure}
+
+\todo[inline]{Describe consistency between creation editing and showing of elements. Eg. the creation editing and showing of categories should be consistent. This regards the layout of the forms}
