@@ -11,11 +11,13 @@ All activities in every application, except the home-activity in the Launcher-ap
 \todo{Add reference to the colors used and describe the gradient}
 
 \begin{figure}[!htbp]
-        \centering
-        \includegraphics[width=0.75\textwidth]{pictures/application_structure/topbar}
-        \caption{Top bar example}
-        \label{fig:top_bar_example}
+    \centering
+    \includegraphics[width=0.75\textwidth]{pictures/application_structure/topbar}
+    \caption{Top bar example}
+    \label{fig:top_bar_example}
 \end{figure}
+
+\todo[inline]{Update this image based on the new guides described below}
 
 \begin{note}
     Such a top bar is easily achieved by letting all of your \androidinline{Activity} extend the \androidinline{GirafActivity} from the \gc library. Doing this will also implement the back button described in \secref{sec:back_button}.
@@ -33,7 +35,7 @@ The left-most button in the top bar must be a back button. This button must have
 \index{Button}
 \index{Button!Help buttons}
 \label{sec:help_button}
-The right-most button in the top bar must be a help button. This button must provide the user with some useful help information regarding the current screen which the user is presented with. For instance if the user is assigning applications to users, the help might be a guide on how to do this correctly.
+The right-most button in the left side of the top bar bar must be a help button. This button must provide the user with some useful help information regarding the current screen which the user is presented with. For instance if the user is assigning applications to users, the help might be a guide on how to do this correctly.
 
 \FloatBarrier
 
