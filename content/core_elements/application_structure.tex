@@ -209,7 +209,27 @@ Each container should provide some padding for its content. This padding should 
 \end{figure}
 
 \begin{note}
-        Whenever the content of the container can be scrolled through (for example a \texttt{GridView}) a property called \texttt{clipToPadding} must be set to \texttt{false}. Please refer to the \href{http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:clipToPadding}{Android documentation} for additional information.
-\end{note}\todo[inline]{The effect of this could be explained more clearly using a figure}
+        Whenever the content of the container can be scrolled through (for example a \texttt{GridView}) a property called \texttt{clipToPadding} must be set to \texttt{false} as seen in \figref{fig:clip_to_padding_false}. Please refer to the \href{http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:clipToPadding}{Android documentation} for additional information.
+\end{note}
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.7]{clip_to_padding_false}
+        \caption{\androidinline{clipToPadding} set to false}
+        \label{fig:correct_element_spacing}
+    \end{subfigure}
+    \hspace{5em} 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.7]{clip_to_padding_true}
+        \caption{\androidinline{clipToPadding} set to true}
+        \label{fig:incorrect_element_spacing}
+    \end{subfigure}
+    
+    \caption{Illustration of the property \androidinline{clipToPadding}}
+    \label{fig:clip_to_padding}
+\end{figure}
 
 \todo[inline]{Describe consistency between creation editing and showing of elements. Eg. the creation editing and showing of categories should be consistent. This regards the layout of the forms}
