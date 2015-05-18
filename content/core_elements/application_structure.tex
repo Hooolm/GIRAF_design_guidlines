@@ -6,9 +6,7 @@
 \section{Top Bar}
 \index{Action bar}
 \index{Top bar}
-All activities in every application, except the home-activity in the Launcher-application,  must have a top bar. This top bar should look like the example in \figref{fig:top_bar_example}. This top bar should provide a short and simple title with enough information to allow the user to know where in the application he or she is. The height of the top bar must be $56dp$. Furthermore, this top bar must include at the two buttons described in \secref{sec:back_button} and \secref{sec:help_button}. A guide for customization of the action bar can be seen in \appref{app:customization_of_action_bar}
-
-\todo[inline]{Add reference to the colors used and describe the gradient}
+All activities in every application, except the home-activity in the Launcher-application,  must have a top bar. This top bar should have a gradient a orange gradient (\colref{4.1}) as in the example in \figref{fig:top_bar_example}. This top bar should provide a short and simple title with enough information to allow the user to know where in the application he or she is. The height of the top bar must be $56dp$. Furthermore, this top bar must include at the two buttons described in \secref{sec:back_button} and \secref{sec:help_button}. A guide for customization of the action bar can be seen in \appref{app:customization_of_action_bar}.
 
 \begin{figure}[!htbp]
         \centering
@@ -26,14 +24,14 @@ All activities in every application, except the home-activity in the Launcher-ap
 \index{Button}
 \index{Button!Back button}
 \label{sec:back_button}
-The left-most button in the top bar must be a back button. This button must have exactly the same functionality as the back button on all Android devices. The icon of this button must be... \todo{Insert reference to the section where icons are described}...
+The left-most button in the top bar must be a back button. This button must have exactly the same functionality as the back button on all Android devices. The icon of this button must be the back icon as described in \secref{sub:user_management}.
 
 \subsection{Help Button}
 \index{Help button}
 \index{Button}
 \index{Button!Help buttons}
 \label{sec:help_button}
-The left-most button in the right side of the top bar must be a help button. This button must provide the user with some useful help information regarding the current screen which the user is presented with. For instance if the user is assigning applications to users, the help might be a guide on how to do this correctly.
+The right-most button in the left side of the top bar bar must be a help button. This button must provide the user with some useful help information regarding the current screen which the user is presented with. For instance if the user is assigning applications to users, the help might be a guide on how to do this correctly.
 
 \FloatBarrier
 
@@ -41,13 +39,10 @@ The left-most button in the right side of the top bar must be a help button. Thi
 \section{Side Bar}
 \index{Side bar}
 
-Side bars need not, but may be contextual. Side bars may be used to switch between content of applications - for instance if the application is split into two parts (side bar and content). A side bar should look like \figref{fig:side_bar_example}. Side bars may not use more than $20\%$ of the total screen estate. When using a side bar it must appear on the left side of the screen. The height of the side bar must be exactly the same as the container that it is inside.
-
-\todo[inline]{Mention that sidebar has an exception regarding margin. Markings of items in sidebar should not have margin to the edge of the sidebar}
-\todo[inline]{Add reference to the colors used and describe the gradient}
+Side bars need not, but may be contextual. Side bars may be used to switch between content of applications - for instance if the application is split into two parts (side bar and content). A side bar should have a gradient a orange gradient (\colref{4.1}) and look like \figref{fig:side_bar_example}. Side bars may not use more than $20\%$ of the total screen estate. When using a side bar it must appear on the left side of the screen. The height of the side bar must be exactly the same as the container that it is inside. Most collections of items must have margins between them, the sidebar however have an exception regarding margin, meaning that there should be no margin between the markings of the items in the sidebar.
 
 \begin{note}
-    \todo[inline]{Write a note describing how this can be made using \gc}
+    When using the \gc library one can access the layout resource \androidinline{R.layout.giraf_sidebar_layout} and inflate it. The parent of this is a \androidinline{RelativeLayout}.
 \end{note}
 
 \begin{figure}[!htbp]
@@ -62,12 +57,10 @@ Side bars need not, but may be contextual. Side bars may be used to switch betwe
 
 \section{Bottom bar}
 \index{Bottom bar}
-Bottom bars must be entirely contextual and depend on the current content displayed in the current activity. A bottom bar should look like \figref{fig:bottom_bar_example}.
-
-\todo[inline]{Add reference to the colors used and describe the gradient}
+Bottom bars must be entirely contextual and depend on the current content displayed in the current activity. A bottom bar should have a gradient a orange gradient (\colref{4.1}) and look like \figref{fig:bottom_bar_example}.
 
 \begin{note}
-    \todo[inline]{Write a note describing how this can be made using \gc}
+    When using the \gc library one can access the layout resource \androidinline{R.layout.giraf_bottom_layout} and inflate it. The parent of this is a \androidinline{RelativeLayout}.
 \end{note}
 
 \begin{figure}[!htbp]
@@ -76,6 +69,8 @@ Bottom bars must be entirely contextual and depend on the current content displa
     \caption{Bottom bar example}
     \label{fig:bottom_bar_example}
 \end{figure}
+
+\todo[inline]{\textbf{OBS:} The gradient is in the wrong direction. It should be light in the bottom darker in the top.}
 
 \FloatBarrier
 
@@ -143,27 +138,6 @@ If the content of the application needs to be switched out or replaced at some p
 \end{figure}
 
 \FloatBarrier
-
-\subsection{Combination \#4}
-\index{Layout}
-\index{Side bar}
-\index{Top bar}
-\index{Bottom bar}
-\index{Bars!Top bar}
-\index{Bars!Side bar}
-\index{Bars!Bottom bar}
-If the content of the application needs to be switched out or replaced at some point, one may want to use a side bar. If the content that is replaced (and side menu) needs to be managed somehow a bottom bar can be used. \figref{fig:bar_combinations_4} shows an illustration of such a layout using a top (darker gray) bar, a side bar (dark gray), and a bottom bar (darkest gray). The content of the application is the light gray color.
-
-\todo[inline]{Consider if this should be allowed}
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.35\textwidth]{pictures/application_structure/bar_combinations_4}
-    \caption{Layout example with both a side bar, a top bar, and a bottom bar}
-    \label{fig:bar_combinations_4}
-\end{figure}
-
-
 
 \section{Clickable Elements}
 All elements that are clickable must have a safety-distance to other elements. This will ensure that the user does not accidentally press the wrong thing and ultimately does something wrong. This safety distance may be achieved using several different methods. Please refer to the following sections. \figref{fig:correct_element_spacing} shows an example of correct item spacing while \figref{fig:incorrect_element_spacing} shows an example of incorrect item spacing.
