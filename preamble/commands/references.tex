@@ -181,3 +181,22 @@
 % References a equation using the "Equation"-prefix.
 % arg1      the labelname of the equation to reference. 
 \newcommand{\forref}[1]{Formula \ref{#1}\xspace}
+
+% =========================== %
+% == Color references == %
+% =========================== %
+
+% \collabel
+% Creates a label for a color and writes the id out as well
+% arg1 		the id of the color to reference. (Do NOT use "col:" just use the number)
+\newcommand{\collabel}[1]{#1 \label{col:#1}}
+
+% \colref
+% References a color using the "Color"-prefix.
+% arg1 		the id of the color to reference. (Do NOT use "col:" just use the number)
+\newcommand{\colref}[1]{Color \hyperref[col:#1]{#1}\xspace}
+
+% \colrefpage
+% References a color using the "Color"-prefix. Will also display the page of the color.
+% arg1 		the id of the color to reference. (Do NOT use "col:" just use the number)
+\newcommand{\colrefpage}[1]{\colref{#1} on \onpageref{col:#1}}
