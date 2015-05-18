@@ -3,7 +3,6 @@
 \chapter{Item collections}
 \index{Item collection}
 
-
 \section{Empty content indicator}
 \label{sec:empty_content_indicator}
 
@@ -32,8 +31,31 @@ If one should have that the content is a dynamic collection of items and that co
     \label{fig:empty_content}
 \end{figure}
 
+\FloatBarrier
+
+\section{Overscroll}
+\label{sec:overscroll}
+
+When a view has a collection of items and the user tried to scroll further than there are elements a gray shadow should be display as seen in \figref{fig:overscroll}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{overscroll_shadow}
+    \caption{Content with overscroll shown in top}
+    \label{fig:overscroll}
+\end{figure}
+
+\FloatBarrier
+
+\section{Updates in the collection}
+\label{sec:updates_in_the_collection}
+
+When updating a collection of items one should notify the user that some change in the collection have happend. There are two legal ways to this. 
+\begin{enumerate}
+    \item Add the item as the first element in the collection.
+    \item Move the view of the collection to place where the item is added.
+\end{enumerate}
+
 \todo[inline]{Describe update of item containers (eg. sidebar): How to notify the user that an element has been added/removed/changed. Also describe how one can manipulate ordering of lists (eg. Pictoreader)}
 
-
-\todo[inline]{Describe the overscroll. How should it look like when one scrolls to the end of a view with a collection of items.}
 
