@@ -1,0 +1,92 @@
+%!TEX root = ../../../main.tex
+
+\chapter{Implementation Guide for Pictures}
+\label{cha:implementation_guide_for_pictures}
+
+To accommodate the need for displaying pictures throughout the different applications in the \giraf software suite, a shared component was build in the \gc library. This chapter will cover the use and functionality of this component. The component implemented is named \androidinline{GirafPictogramItemView}.
+
+\todo[inline]{Consider if it would be better to rename it to something like \androidinline{GirafImageEntityView} to indicate that the component may be used to more than just displaying pictograms}
+
+\begin{note}
+    Throughout this chapter different examples will reference constructors of the \androidinline{GirafImageEntityView}. The class contains a lot of different constructors with a lot of different, optional, parameters. The examples will only cover some of these constructors, so please reference the documentation for the class if in doubt.
+\end{note}
+
+\section{General Usage}
+\label{sec:general_usage}
+The component may be used to display anything that extends the \androidinline{ImageEntity}-interface. Examples of such classes are \androidinline{Pictogram}, \androidinline{Category}, and \androidinline{Applications}. This section will only cover the most basic use of the component. Please refer to the following sections to see more specific usages of the components.
+
+\todo[inline]{Write that the only use for this component is programmatically and it's XML implementations are very limited}
+
+\begin{note}
+    Some classes cannot be used because of a poor structure. Example of such a class is \androidinline{Sequence}, which does not have its own image but instead a reference to a \androidinline{Pictogram}. When using the the component, please make sure that the class extends the \androidinline{ImageEntity} interface otherwise refer to \secref{sec:workarounds} to see how to fix this issue.
+\end{note}
+
+\noindent
+The most general use of this component is to simply display an image. This image ``comes from'' objects (instances) of classes that extend the \androidinline{ImageEntity}. To create a new instance of the view, simply call its constructor which will require a context and the object that should be displayed. \lstref{lst:basic_use} shows an example of a \androidinline{getView}-method in an adapter which is used to display pictograms. Please note that this example does not include a title below the picture. To do this, additional parameters for the constructors are required. \lstref{lst:basic_use_with_title} shows the same example, however including the title parameter. The title can also later be changed (or set) using the \androidinline{setTitle}-method on the \androidinline{GirafPictogramItemView} object. The title can furthermore be shown or hidden using the methods \androidinline{showTitle} and \androidinline{hideTitle}.
+ 
+\lstinputlisting[
+    style = java,
+    caption = {Basic use},
+    label = {lst:basic_use},
+]{content/appendix/implementation_guide_for_pictures/code_snippets/basic_use.java} 
+
+\lstinputlisting[
+    style = java,
+    caption = {Basic use (with title)},
+    label = {lst:basic_use_with_title},
+]{content/appendix/implementation_guide_for_pictures/code_snippets/basic_use_with_title.java} 
+
+
+\section{Indicator Overlay}
+\label{sec:indicator_overlay}
+In some situations it may be required to indicate something about a picture - for instance when differentiating between pictograms and categories or that the picture can be edited. This can be achieved by using a small indicator overlay in the bottom right corner of the picture. (See \secref{sec:indicator_overlay} for additional information). 
+
+\subsection{Overlay to indicate editable status}
+To indicate that a picture is editable use the method \androidinline{setEditable} on a \androidinline{GirafPictogramItemView} object. This method requires a \androidinline{boolean} as argument. If set to \androidinline{true}, the picture will appear as editable, while \androidinline{false} will display the picture as normal.
+
+\subsection{Custom indicator overlay}
+To use a custom indicator overlay, use the method \androidinline{setIndicatorOverlayDrawable} on a \androidinline{GirafPictogramItemView} object. This method requires a \androidinline{Drawable} as argument. 
+
+\begin{note}
+    It is not possible to use both an editable-overlay along with a custom indicator. If you try to do this, you will receive an exception.
+\end{note}
+
+
+\section{Fallback Drawable}
+\label{sec:fallback_drawable}
+If you suspect that some of the \androidinline{ImageEntity}-objects does not actually have an image, a fallback-image may be used. This fallback image will only be displayed in the case that the original objects does not have any images. \lstref{lst:usage_with_fallback} shows an example of a \androidinline{getView}-method in an adapter. This example will use the drawable \androidinline{icon_fallback} if the variable \androidinline{pictogram} does not have an image. 
+\\\\
+The fallback drawable can also be set when calling the \androidinline{setImageModel}-method. This method require two parameters, the first being an \androidinline{ImageEntity} (the object that should be shown) and the second is a \androidinline{Drawable}, which will be used as a fallback.
+
+\lstinputlisting[
+    style = java,
+    caption = {Usage with fallback},
+    label = {lst:usage_with_fallback},
+]{content/appendix/implementation_guide_for_pictures/code_snippets/fallback.java} 
+
+
+\section{Grayscaled Pictures}
+\label{sec:grayscaled_pictures}
+If needed, the \androidinline{GirafPictogramItemView} can display all of the pictures grayscaled. From default, this is disabled but may be enabled by adding an additional boolean parameter (set to true) to the constructor or by adding the same parameter to the \androidinline{setImageModel}-method.
+
+
+\section{Marking}
+\label{sec:marking}
+Marking of \androidinline{GirafPictogramItemView} can be done through one of the following methods. The method \androidinline{setChecked} requires a boolean, indicating if the view should be marked (\androidinline{true}) or not (\androidinline{false}). \androidinline{toggle} required no parameters and will simply invert the current checked/marked state. If needed, you may call \androidinline{isChecked} which will return a \androidinline{boolean} indicating if the view is marked. 
+
+
+\section{Workarounds}
+\label{sec:workarounds}
+
+\begin{note}
+    These workarounds are not something that should be used ideally, and should only be temporarily fixes until the structure of the different classes are fixed. This workaround only works for classes that do not implement the interface \androidinline{ImageEntity}. If the class that you want to display implements \androidinline{ImageEntity}, please refer to \secref{sec:general_usage}.    
+\end{note}
+
+\noindent
+Most classes that do not implement the interface \androidinline{ImageEntity} have some kind of relation to something that does. So to display the wrongly structured class, you must first locate this relation. For instance when displaying a \androidinline{Sequence}, you must use its reference to a \androidinline{Pictogram} in order to display it. Please refer to \lstref{lst:workaround_example} to see an example of how to implement this workaround.
+
+\lstinputlisting[
+    style = java,
+    caption = {Workaround example},
+    label = {lst:workaround_example},
+]{content/appendix/implementation_guide_for_pictures/code_snippets/workaround_example.java} 

@@ -1,0 +1,39 @@
+%!TEX root = ../../main.tex
+
+\chapter{Item collections}
+\index{Item collection}
+
+
+\section{Empty content indicator}
+\label{sec:empty_content_indicator}
+
+\index{Layout content!Empty content}
+\index{Item collection!Empty content}
+
+If one should have that the content is a dynamic collection of items and that collection is empty one should indicate that there are no items avaiable. This indicator should be a gray text \todo{refer to gray} like seen in \figref{fig:empty_content_noitems}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{item_collection_items}
+        \caption{Content with items}
+        \label{fig:empty_content_items}
+    \end{subfigure}
+    \hspace{5em} 
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{item_collection_noitems}
+        \caption{Content with no items}
+        \label{fig:empty_content_noitems}
+    \end{subfigure}
+    
+    \caption{Empty content indicator}
+    \label{fig:empty_content}
+\end{figure}
+
+\todo[inline]{Describe update of item containers (eg. sidebar): How to notify the user that an element has been added/removed/changed. Also describe how one can manipulate ordering of lists (eg. Pictoreader)}
+
+
+\todo[inline]{Describe the overscroll. How should it look like when one scrolls to the end of a view with a collection of items.}
+
