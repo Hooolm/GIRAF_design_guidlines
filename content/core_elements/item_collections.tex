@@ -50,36 +50,36 @@ When a view has a collection of items and the user tried to scroll further than 
 \section{Updates in the collection}
 \label{sec:updates_in_the_collection}
 
-When updating a collection of items one should notify the user that some change in the collection have happend. There are two legal ways to this. 
+When updating a collection of items one should notify the user that some change in the collection have happend. There are two legal ways to this:
 \begin{enumerate}
-    \item Add the item as the first element in the collection.
-    \item Move the view of the collection to place where the item is added.
+    \item Add the item as the first element in the collection as seen in \figref{fig:item_collection_after_update_one}.
+    \item Move the view of the collection to place where the item is added as seen in \figref{fig:item_collection_after_update_two}.
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
-    \begin{subfigure}[t]{0.4\textwidth}
+    \begin{subfigure}[t]{0.2\textwidth}
         \centering
         \includegraphics[scale=0.6]{item_collection_update/item_collection_before_update}
         \caption{Item collection before udpate}
         \label{fig:item_collection_before_update}
     \end{subfigure}
-    \hspace{5em} 
-    \begin{subfigure}[t]{0.4\textwidth}
+    \hspace{2em} 
+    \begin{subfigure}[t]{0.2\textwidth}
         \centering
         \includegraphics[scale=0.6]{item_collection_update/item_collection_after_update_one}
         \caption{Item collection afer udpate option \#1}
         \label{fig:item_collection_after_update_one}
     \end{subfigure}
-    \vspace{5em}
-    \begin{subfigure}[t]{0.4\textwidth}
+    \hspace{2em} 
+    \begin{subfigure}[t]{0.2\textwidth}
         \centering
         \includegraphics[scale=0.6]{item_collection_update/item_collection_after_update_two}
         \caption{Item collection after udpate option \#2}
         \label{fig:item_collection_after_update_two}
     \end{subfigure}
-    \hspace{5em} 
-    \begin{subfigure}[t]{0.4\textwidth}
+    \hspace{2em} 
+    \begin{subfigure}[t]{0.2\textwidth}
         \centering
         \includegraphics[scale=0.6]{item_collection_update/item_collection_after_update_wrong}
         \caption{Wrong item collection af udpate}
@@ -90,6 +90,9 @@ When updating a collection of items one should notify the user that some change 
     \label{fig:item_collection_update}
 \end{figure}
 
-\todo[inline]{Describe update of item containers (eg. sidebar): How to notify the user that an element has been added/removed/changed. Also describe how one can manipulate ordering of lists (eg. Pictoreader)}
+\FloatBarrier
 
+\section{Reordering in the collection}
+\label{sec:reordering_in_the_collection}
 
+\todo[inline]{Describe how one may reorder in a collection of items. For isntance the bottombar in the Pictoreader}
