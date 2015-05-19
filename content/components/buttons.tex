@@ -3,6 +3,23 @@
 \chapter{Buttons}
 \label{cha:buttons}
 
-\todo[inline]{\textbf{Describe Buttons (GirafButtons):} Talk about when to use text, when to use icons, when to use both, and where to place positive and negative actions in a layout. Android Standard says that positive action buttons should be to the right and negative should be to the left. For instance Deny-button to the left and Confirm-button to the right}
+For the following sections there exist a shared component called \androidinline{GirafButton} which assists one to comply with the following design rules, for a guide on how to use this class see \appref{app:usage_of_girafbuttons}.
 
-\todo[inline]{Refer to the appendix (Usage of GirafButtons) that describes how one uses the GirafButton class implemented in the GirafComponents. This appendix might not be done yet.}
+\section{Background and border}
+\label{sec:button_background_and_border}
+
+The background of a button should by default have a orange/yellow (\colref{2.1}) gradient background with a darker border (\colref{2.2}) as seen on FIGREF. When a button is pressed the background should become darker (\colref{2.3}) alongside the an even darker border (\colref{2.4}).
+
+\todo[inline]{Insert figure of a default button and a pressed button}. 
+
+\section{Content}
+\label{sec:button_content}
+
+A button can either contain text FIGREF1, and icon FIGREF2 or both as seen in FIGREF3. If one wants a button that does something that can be symbolized easily with an icon (See \charef{cha:icons}) which the user is familiar with, one should use an icon only button. In other cases where some text is needed to explain an action one should do so, how ever one should only have both icon and text in cases where the icon helps to understand the text. In the cases where there are no icon symbolizing what the text describes one should use a text only button.
+
+\todo[inline]{Insert figure of the three buttons}
+
+\section{Context}
+\label{sec:button_context}
+
+When a collection of buttons is shown regarding the same context the buttons should be ordered by negative and positive actions. Leftmost buttons should cause negative actions and the rightmost should cause positive buttons. An example of this can be seen in the dialog displayed in \figrefpage{fig:profiles_selector_dialog}.
