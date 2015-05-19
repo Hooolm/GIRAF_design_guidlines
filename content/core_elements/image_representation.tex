@@ -4,6 +4,8 @@
 \index{Image}
 \index{Pictogram}
 
+For the following sections there exist a shared component called \androidinline{GirafPictogramItemView} which assists one to comply with the following design rules, for a guid on how to use this class see \appref{app:implementation_guide_for_pictures}.
+
 \section{Appearance}
 \label{sec:appearance}
 In the \giraf software-suite there exist various types of images, such as pictograms and profile pictures. Images should be quadratic, have a white background (\colref{3.1}) regardless of content and have a black border (\colref{3.2}), as seen in \figref{fig:pictogram_image_view}. 
@@ -133,5 +135,3 @@ If one wants to indicate that an image is editable, for instance when picking an
     \caption{Indicator overlays}
     \label{fig:pictograms_overlay}
 \end{figure}
-
-\todo[inline]{Describe how an add item pictogram is used (Common element for adding items to a list eg. new pictogram to sequence, new department to profilemanager etc.) --> Use PictogramItemView with fallback set no image and a text saying what is going to be added, maybe generalize this in GirafComponents}.
