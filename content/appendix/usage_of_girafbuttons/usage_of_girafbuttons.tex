@@ -1,17 +1,35 @@
 %!TEX root = ../../../main.tex
 \chapter{Usage of GirafButtons}
 \label{app:usage_of_girafbuttons}
+\index{Button}
+\index{GirafButton}
 
-This appendix explains how ones used the class \androidinline{GirafButton} for complying wit the rules described in \charef{cha:buttons}.
+This appendix explains how ones used the class \androidinline{GirafButton} for complying wit the rules described in \charef{cha:buttons}. Through out this explanation we will be creating a buttons looking somewhat like the one in \figref{fig:girafbutton_camera}.
 
-\lstinputlisting[
-    style = java,
-    caption = {GirafButton activity},
-    label = {lst:button_activity},
-]{content/appendix/usage_of_girafbuttons/ExampleActivity.java}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.2\textwidth]{girafbutton_camera}
+	\caption{Visual representaion of a \androidinline{GirafButton}}
+	\label{fig:girafbutton_camera}
+\end{figure}
+\noindent
 
 \lstinputlisting[
     style = java,
     caption = {GirafButton xml},
     label = {lst:button_xml},
 ]{content/appendix/usage_of_girafbuttons/example_activity.xml}
+
+A \androidinline{GirafButton} can be inserted into the GUI both using xml component but also using a java class. If you have layout as in \lstref{lst:button_xml}, if you want to access the button you should use the \androidinline{findViewById} as seen in \lstrefline{line:button_java:findviewbyid}{lst:button_activity}.
+
+\begin{note}
+	When using xml to implement a button note that you have to set either the \androidinline{app:text} property or the \androidinline{app:icon} property. Otherwise an \androidinline{IllegalArgumentException} will be thrown.
+\end{note}
+
+\lstinputlisting[
+    style = java,
+    caption = {GirafButton activity},
+    label = {lst:button_activity},
+]{content/appendix/usage_of_girafbuttons/ExampleActivity.java}
+\noindent
+If one wants to create various buttons dynamically in code one can use one the three constructors provided for the \androidinline{GirafButton} class. These three constructors takes either a \androidinline{String} setting the text on the button, a \androidinline{Drawable} setting the icon or both as seen in \lstreflines{line:button_java:constructorstart}{line:button_java:constructorend}{lst:button_activity}.
